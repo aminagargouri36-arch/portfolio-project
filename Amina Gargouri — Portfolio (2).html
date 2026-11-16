@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amina Gargouri — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff0f6;--surface:#fff;--text:#3d1230;--muted:#a0668a;--accent:#e11d74;--accent2:#fb7185;--line:rgba(225,29,116,.16);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c0a16;--surface:#2b1224;--text:#ffeaf4;--muted:#e0a9c6;--accent:#f472b6;--accent2:#fda4af;--line:rgba(249,168,212,.18);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1c0a16;--surface:#2b1224;--text:#ffeaf4;--muted:#e0a9c6;--accent:#f472b6;--accent2:#fda4af;--line:rgba(249,168,212,.18);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+.glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,var(--accent) 0%,transparent 70%);opacity:.12;transform:translate(-50%,-50%);transition:left .3s ease-out,top .3s ease-out;left:50%;top:30%}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav b{font-family:Pacifico,cursive;font-weight:400;font-size:1.3rem;color:var(--accent)}
+nav .links{display:flex;gap:22px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:500;transition:color .2s}
+nav a:hover,nav a.active{color:var(--text)}
+#theme{background:none;border:1px solid var(--line);color:var(--text);border-radius:99px;width:36px;height:36px;cursor:pointer;font-size:1rem;transition:transform .3s}
+#theme:hover{transform:rotate(30deg)}
+section{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:110px 5vw 60px}
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.tag{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent);border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:99px;width:max-content;margin-bottom:24px}
+h1{font-size:clamp(2.6rem,8vw,5.6rem);line-height:1.02;letter-spacing:-.04em;font-weight:800}
+h1 .line{display:block;overflow:hidden}
+h1 .line span{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .line:nth-child(2) span{animation-delay:.12s}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes up{to{transform:none}}
+.sub{margin-top:26px;max-width:560px;color:var(--muted);font-size:1.15rem;opacity:0;animation:fade 1s .5s forwards}
+.cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fade 1s .7s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{padding:13px 24px;border-radius:12px;font-weight:600;text-decoration:none;font-size:.95rem;transition:transform .25s,box-shadow .25s}
+.btn.p{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+.btn.s{border:1px solid var(--line);color:var(--text);background:var(--surface)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(236,72,153,.35)}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.03em;margin-bottom:10px}
+.lead{color:var(--muted);max-width:620px;margin-bottom:32px}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.skills span{padding:8px 16px;border:1px solid var(--line);background:var(--surface);border-radius:99px;font-size:.9rem;font-weight:500;transition:transform .2s,border-color .2s}
+.skills span:hover{transform:translateY(-3px);border-color:var(--accent)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{font:inherit;font-weight:600;font-size:.9rem;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .25s}
+.filters button.on{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,opacity .4s}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(236,72,153,.3)}
+.card.hide{display:none}
+.card.pop{animation:pop .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(16px)}}
+.thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;position:relative;overflow:hidden}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s}
+.card:hover .thumb::after{transform:translateX(100%)}
+.body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.kind{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.body h3{font-size:1.15rem;letter-spacing:-.01em}
+.body p{color:var(--muted);font-size:.93rem;flex:1}
+.go{font-weight:600;font-size:.9rem;margin-top:6px}
+.go i{display:inline-block;font-style:normal;transition:transform .25s}
+.card:hover .go i{transform:translateX(6px)}
+.timeline{border-left:2px solid var(--line);padding-left:26px;display:flex;flex-direction:column;gap:30px;margin-top:10px}
+.timeline div{position:relative}
+.timeline div::before{content:"";position:absolute;left:-33px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.timeline small{color:var(--muted);font-weight:600}
+.timeline h3{font-size:1.1rem}
+.timeline p{color:var(--muted);font-size:.95rem}
+.contact{text-align:center}
+.contact .lead{margin-inline:auto}
+.contact .cta{justify-content:center;opacity:1;animation:none}
+footer{position:relative;z-index:1;text-align:center;color:var(--muted);font-size:.85rem;padding:30px 5vw 50px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:30}
+.curtain{position:fixed;inset:0;background:linear-gradient(135deg,#f9a8d4,#ec4899);z-index:50;transform-origin:top;animation:cur .9s .1s cubic-bezier(.76,0,.24,1) forwards;pointer-events:none}
+@keyframes cur{to{transform:scaleY(0)}}
+.blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.4;z-index:0;pointer-events:none;animation:flt 12s ease-in-out infinite}
+.b1{width:340px;height:340px;background:#f9a8d4;top:6%;left:-90px}
+.b2{width:300px;height:300px;background:#fda4af;bottom:4%;right:-70px;animation-delay:-5s}
+@keyframes flt{50%{transform:translateY(-40px) scale(1.1)}}
+.spark{position:absolute;color:var(--accent2);animation:tw 3s ease-in-out infinite;pointer-events:none}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.4}50%{transform:scale(1.2) rotate(25deg);opacity:1}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chips span{font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent)}
+.card.pop{animation-fill-mode:backwards}
+.card[data-cat]{cursor:pointer}
+.crumb{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-bottom:4px}
+.crumb b{font-size:1.2rem}
+.back{font:inherit;font-weight:600;font-size:.9rem;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;transition:transform .2s}
+.back:hover{transform:translateX(-4px)}
+@media(max-width:640px){nav .links a{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}h1 .line span{transform:none}.sub,.cta{opacity:1}}
+</style>
+</head>
+<body>
+<div class="curtain"></div>
+<div id="bar"></div>
+<div class="glow" id="glow"></div>
+<div class="blob b1"></div><div class="blob b2"></div>
+
+<nav>
+  <b>Amina Gargouri<span class="grad">.</span></b>
+  <div class="links">
+    <a href="#about">About</a><a href="#work">Work</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle theme">◐</button>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <span class="tag">✨ Data analysis &amp; video editing</span><span class="spark" style="top:22%;right:12%;font-size:2.2rem">✦</span><span class="spark" style="top:48%;right:26%;font-size:1.2rem;animation-delay:-1s">✦</span><span class="spark" style="top:70%;right:8%;font-size:1.6rem;animation-delay:-2s">✧</span>
+  <h1><span class="line"><span>Hi, I’m <span class="grad">Amina</span>.</span></span><span class="line"><span>I analyze &amp; create.</span></span></h1>
+  <p class="sub">I studied Big Data and Data Analysis, and I edit videos for social media. I turn data into insight and footage into stories people remember.</p>
+  <div class="cta"><a class="btn p" href="#work">See my work</a><a class="btn s" href="#contact">Get in touch</a></div>
+</section>
+
+<section id="about">
+  <h2 class="rv">About me</h2>
+  <p class="lead rv">I studied Big Data and Data Analysis at the Higher Institute of Computer Science and Multimedia of Sfax (ISIMS). I edit videos for social media, both for myself and as work. Editing is what I enjoy most, and I love programming too. I’m always learning something new and going deeper into what I already know.</p>
+  <div class="skills rv" id="skills"></div>
+</section>
+
+<section id="work">
+  <h2 class="rv">Selected work</h2>
+  <p class="lead rv">Two sides of what I do. Most of my work is in English or Tunisian dialect. Pick a category, then click any card to open the project.</p>
+  <div class="filters rv" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="journey">
+  <h2 class="rv">Journey</h2>
+  <div class="timeline">
+    <div class="rv"><small>2025</small><h3>Marketing &amp; video editing begins</h3><p>Founder and Vice President of Marketing of the university club EPIK LEADERS, where I started editing marketing videos.</p></div>
+    <div class="rv"><small>2024</small><h3>Started studying at ISIMS</h3><p>Higher Institute of Computer Science and Multimedia of Sfax, studying Big Data and Data Analysis.</p></div>
+    
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="rv">Let’s work together</h2>
+  <p class="lead rv">Have a project, an offer or just want to say hi? My inbox is open.</p>
+  <div class="cta rv"><a class="btn p" href="https://mail.google.com/mail/?view=cm&fs=1&to=aminagargouri36@gmail.com&su=Hello%20Amina" target="_blank" rel="noopener">aminagargouri36@gmail.com</a><a class="btn s" href="https://mail.google.com/mail/?view=cm&fs=1&to=aminagargouri05@gmail.com&su=Hello%20Amina" target="_blank" rel="noopener">aminagargouri05@gmail.com</a><a class="btn s" href="https://www.linkedin.com/in/aminagargouri/" target="_blank" rel="noopener">LinkedIn</a></div>
+</section>
+<footer>© <span id="yr"></span> Amina Gargouri. Built with care.</footer>
+
+<script>
+/* ✏️ EDIT HERE: your skills and projects. kind: code | website | video */
+var SKILLS=["Video editing","Social media content","Big Data","Data Analysis","Programming","Always learning"];
+var PROJECTS=[
+ {kind:"code",title:"SharePoint document archiving app",desc:"My first big project: a SharePoint web part that moves old documents into an Archives folder, manually or on an automatic schedule, with storage stats and archiving reports.",url:"https://drive.google.com/file/d/14jeNh3zikF9Aru8EieZo8VFeWEKzLzDh/view",tags:["SharePoint Framework","React","PnPjs","Microsoft Graph"],icon:"🗂️",c:["#ec4899","#f9a8d4"]},
+ 
+ 
+ 
+ 
+ {kind:"video",group:"work",title:"Ambition agency 1",desc:"Social media video for Ambition agency.",url:"https://drive.google.com/file/d/1_zO1pq041VKd1yfd4lLPdPnx_sWB5sjR/view",icon:"▶",c:["#f472b6","#fb7185"]},
+ {kind:"video",group:"work",title:"Ambition agency 2",desc:"Social media video for Ambition agency.",url:"https://drive.google.com/file/d/1p85u9re-upwetbgs2Cn7V88ErxbgeGG4/view",icon:"▶",c:["#e879f9","#f472b6"]},
+ {kind:"video",group:"work",title:"Ambition agency 3",desc:"Social media video for Ambition agency.",url:"https://drive.google.com/file/d/1FLIw0rUEr0hI4ae4X6enu1gUjeHU6EuL/view",icon:"▶",c:["#fda4af","#ec4899"]},
+ {kind:"video",group:"work",title:"Ambition agency 4",desc:"Social media video for Ambition agency.",url:"https://drive.google.com/file/d/1itzY7vYhjj5HVQqBarDjgwXRd0YE3vgs/view",icon:"▶",c:["#f9a8d4","#e11d74"]},
+ {kind:"video",group:"work",title:"Wedding makeup",desc:"Social media video for a wedding makeup artist.",url:"https://drive.google.com/file/d/1ws3X3YCp5rLciyM5k2tNNX1qG4CZanP9/view",icon:"▶",c:["#fb7185","#f472b6"]},
+ {kind:"video",group:"work",title:"Henna party",desc:"Social media video of a henna party.",url:"https://drive.google.com/file/d/1-EUewgicYOK5HBBANVF4d0jMPkjc1zGn/view",icon:"▶",c:["#f472b6","#fb7185"]},
+ {kind:"video",group:"work",title:"Sushi",desc:"Social media video about sushi.",url:"https://drive.google.com/file/d/1RQJoiwW7PXkK4nos8zRZS2BUwxAEv_6G/view",icon:"▶",c:["#e879f9","#f472b6"]},
+ {kind:"video",group:"work",title:"A trend to follow",desc:"Social media video following a trend.",url:"https://drive.google.com/file/d/1kvnEA9KE-XDD_3o6TBxsybV4HX0LpoG4/view",icon:"▶",c:["#fda4af","#ec4899"]},
+ {kind:"video",group:"personal",title:"A trip deep into the sea 1",desc:"A personal video of an underwater trip.",url:"https://drive.google.com/file/d/19HbozaGOT0rHxC1AaCQiG8kzV4VlfMAA/view",icon:"▶",c:["#f9a8d4","#e11d74"]},
+ {kind:"video",group:"personal",title:"A trip deep into the sea 2",desc:"A personal video of an underwater trip.",url:"https://drive.google.com/file/d/1OBOjQH92scsbF8s_7w6BKdEHuZ5iHF1e/view",icon:"▶",c:["#fb7185","#f472b6"]},
+ {kind:"video",group:"personal",title:"Pregnancy reveal",desc:"A personal video of a pregnancy reveal.",url:"https://drive.google.com/file/d/17f5FcuyhwXR-yBARec4jCrubuirRPKxo/view",icon:"▶",c:["#f472b6","#fb7185"]},
+ {kind:"video",group:"personal",title:"A day on the beach",desc:"A personal video of a day at the beach.",url:"https://drive.google.com/file/d/1AZy3p920eE57DEyT0xfi9SjJ_hTVMT8v/view",icon:"▶",c:["#e879f9","#f472b6"]},
+ {kind:"video",group:"personal",title:"Epik Leaders stand day",desc:"University club Epik Leaders, stand day.",url:"https://drive.google.com/file/d/1-pc_jtdyTf3RIkrbHbPnOTv-kZfE5GUy/view",icon:"▶",c:["#fda4af","#ec4899"]},
+];
+var LABEL={code:"Programming",website:"Programming",video:"Video editing"};
+var $=function(s){return document.querySelector(s)};
+$("#yr").textContent=new Date().getFullYear();
+$("#skills").innerHTML=SKILLS.map(function(s){return"<span>"+s+"</span>"}).join("");
+var CATS=[
+ {g:"work",icon:"📱",title:"Social media work",desc:"Videos I edited as work for social media.",c:["#ec4899","#f9a8d4"]},
+ {g:"personal",icon:"💖",title:"Personal",desc:"Videos I edited for myself, from my own life.",c:["#e879f9","#fda4af"]}
+];
+var grid=$("#grid"),f=$("#filters"),tab="video",grp=null;
+function cardHTML(p){
+ var chips=(p.tags||[]).map(function(t){return'<span>'+t+'</span>'}).join(''),tag=p.url?'a':'div',attr=p.url?' href="'+p.url+'" target="_blank" rel="noopener"':'';
+ return'<'+tag+' class="card"'+attr+'><div class="thumb" style="background:linear-gradient(135deg,'+p.c[0]+','+p.c[1]+');color:#fff">'+p.icon+'</div><div class="body"><span class="kind">'+LABEL[p.kind]+'</span><h3>'+p.title+'</h3><p>'+p.desc+'</p>'+(chips?'<div class="chips">'+chips+'</div>':'')+(p.url?'<span class="go">Open <i>→</i></span>':'')+'</div></'+tag+'>';
+}
+function vids(g){return PROJECTS.filter(function(p){return p.kind==="video"&&p.group===g})}
+function render(){
+ var h;
+ if(tab==="code"){h=PROJECTS.filter(function(p){return p.kind!=="video"}).map(cardHTML).join('')}
+ else if(!grp){h=CATS.map(function(c){return'<div class="card" role="button" tabindex="0" data-cat="'+c.g+'"><div class="thumb" style="background:linear-gradient(135deg,'+c.c[0]+','+c.c[1]+');color:#fff;height:190px;font-size:3rem">'+c.icon+'</div><div class="body"><span class="kind">Video editing</span><h3>'+c.title+'</h3><p>'+c.desc+'</p><div class="chips"><span>'+vids(c.g).length+' videos</span></div><span class="go">See videos <i>→</i></span></div></div>'}).join('')}
+ else{var c=CATS.filter(function(x){return x.g===grp})[0];h='<div class="crumb"><button class="back" data-back>← Back</button><b>'+c.icon+' '+c.title+'</b></div>'+vids(grp).map(cardHTML).join('')}
+ grid.innerHTML=h;
+ grid.querySelectorAll(".card").forEach(function(c,i){c.style.animationDelay=(i*70)+"ms";c.classList.add("pop")});
+}
+f.innerHTML='<button data-k="video" class="on">🎬 Video editing</button><button data-k="code">💻 Programming</button>';
+f.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+ f.querySelectorAll("button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");tab=b.dataset.k;grp=null;render()});
+function openCat(e){var c=e.target.closest("[data-cat]");if(c){grp=c.dataset.cat;render();return}if(e.target.closest("[data-back]")){grp=null;render()}}
+grid.addEventListener("click",openCat);
+grid.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){var c=e.target.closest("[data-cat]");if(c){e.preventDefault();openCat(e)}}});
+render();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(el,i){el.style.transitionDelay=(i%3)*80+"ms";io.observe(el)});
+var links=document.querySelectorAll("nav .links a"),secs=["about","work","journey","contact"].map(function(id){return document.getElementById(id)});
+function onScroll(){var h=document.documentElement,y=h.scrollTop;$("#bar").style.width=(y/(h.scrollHeight-h.clientHeight)*100)+"%";
+ var cur="";secs.forEach(function(s){if(s.getBoundingClientRect().top<window.innerHeight*.4)cur=s.id});
+ links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+cur)})}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+addEventListener("pointermove",function(e){var g=$("#glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});
+$("#theme").onclick=function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
+</script>
+</body>
+</html>
